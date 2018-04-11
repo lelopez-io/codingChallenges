@@ -1,15 +1,13 @@
-myArray = [10, 15, 3, 7]
 val = 17
+pairsFound = []
+arrayIn = [10, 15, 3, 7, 2, 5, 14, 25, -8]
 
-pairFound = false
+arrayIn.sort!
+i = 0
+j = arrayIn.size - 1
 
-for i in 0..(myArray.size - 2)
-  for j in (i + 1)..(myArray.size - 1)
-    if myArray[i] + myArray[j] == val
-      pairFound = true
-      puts "#{myArray[i]} + #{myArray[j]} = #{val}"
-    end
-  end
+while i < j
+  pairsFound.push([arrayIn[i], arrayIn[j]]) if (arrayIn[i] + arrayIn[j] == val)
+  (arrayIn[i] + arrayIn[j] >= val) ? (j -= 1) : (i += 1) 
 end
-
-puts "Pair found? #{pairFound}"
+puts "Pairs found: #{pairsFound}"
